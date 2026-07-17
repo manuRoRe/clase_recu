@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { FlexCards } from "./components/FlexCards";
-import { Footer } from "./components/Footer";
-import { Formulario } from "./components/Formulario";
-import { Header } from "./components/Header";
-import { SearchBar } from "./components/SearchBar";
 import { users } from "./data/userData";
+import { Route, Routes } from "react-router-dom";
+import { MainLayout } from "./layouts/MainLayout";
+import { DashboardPage } from "./pages/DashboardPage";
+import { AdminPage } from "./pages/Admin";
+import { LoginPage } from "./pages/Login";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -18,13 +19,14 @@ function App() {
   });
 
   return (
-    <>
-      <Header />
-      <Formulario />
-      <SearchBar search={search} setSearch={setSearch} />
-      <FlexCards users={listFiltered} />
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<DashboardPage />} />
+        <Route path="/admin" element={<AdminPage></AdminPage>} />
+        <Route path="/login" element={<LoginPage></LoginPage>} />
+      </Route>
+      <Route path="*" element={<NotFoundPage></NotFoundPage>} />
+    </Routes>
   );
 }
 
