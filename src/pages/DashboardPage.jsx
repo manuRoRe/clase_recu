@@ -1,3 +1,4 @@
+import { CheckHealth } from "../components/CheckHealth";
 import { FlexCards } from "../components/FlexCards";
 import { users } from "../data/userData";
 
@@ -10,6 +11,7 @@ export function DashboardPage() {
           Vista de lectura disponible para usuarios autenticados.
         </p>
       </div>
+      <CheckHealth></CheckHealth>
 
       <FlexCards users={users} />
     </>
