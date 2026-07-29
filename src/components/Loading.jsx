@@ -1,7 +1,7 @@
-export const Loading = () => {
+export function Loading({ text = "Cargando datos..." }) {
   return (
-    <p className="text-2xl text-cyan-300 text-center">
-      Los datos estan cargando...
-    </p>
+    <div className="rounded-xl border bg-white p-5 text-slate-600 shadow-sm">
+      {text}
+    </div>
   );
-};
+}

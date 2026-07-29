@@ -1,8 +1,8 @@
 import axiosClient from "../api/axiosClient";
 
-export const login = async (email, password) => {
+export const login = async (credentials) => {
     try {
-        const response = await axiosClient.post("/auth/login", { email, password });
+        const response = await axiosClient.post("/auth/login", credentials);
         return response.data;
     } catch (error) {
         console.error("Error during login:", error);
